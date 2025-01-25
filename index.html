@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kanvitech - Full Site with Footer</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Example Google Fonts (Tangerine, Playfair Display & Poppins) -->
+  <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&family=Playfair+Display:wght@700&family=Poppins:wght@700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link 
+    rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" 
+    integrity="sha512-d70P4cw8IeFNLMFZNXe1Aq8xz1/V2KycR+BQKpPzLDrkSY8Nzos2sfnNAb8Q9dIC/Hv3z+BiNp5F9dAkf8qR7A==" 
+    crossorigin="anonymous" 
+    referrerpolicy="no-referrer" 
+  />
+
+  <!-- Bootstrap CSS -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.css"
+    integrity="sha512-cJ8x3P3tLC26wrE1CUOOkvGTNWrIZvZ7owX8Oy4mLGQ0EeAlpm1D6VJCM2xvbHnTPdyf4fBUH3+IEVpAimO8kg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="css/carousal.css">
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="logo">
+      <img src="assets/logo.png" alt="Company Logo">
+    </div>
+    
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Services</a>
+      <a href="#">Contact</a>
+    </div>
+    <div class="hamburger" aria-label="Toggle navigation" role="button" tabindex="0">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+  </div>
+  </nav>
+  <!-- =====================
+       HERO CAROUSEL SECTION
+  ====================== -->
+  <div class="carousel-container">
+    <div class="slide">
+      <!-- Slide 1 -->
+      <div
+        class="item"
+        style="background-image: url('assets/heronew.jpg');"
+      >
+        <div class="content">
+          <div class="name">Switzerland</div>
+          <div class="des">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          </div>
+          <button>See More</button>
+        </div>
+      </div>
+      <!-- Slide 2 -->
+      <div
+        class="item"
+        style="background-image: url('https://media.istockphoto.com/id/1435226158/photo/circuit-board-background-computer-data-technology-artificial-intelligence.jpg?s=2048x2048&w=is&k=20&c=MmERVQIHiEtik65fCxK59i8Wl05a7_LxmQgj80EHaX4=');"
+      >
+        <div class="content">
+          <div class="name">Finland</div>
+          <div class="des">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          </div>
+          <button>See More</button>
+        </div>
+      </div>
+      <!-- Slide 3 -->
+      <div
+        class="item"
+        style="background-image: url('assets/tech1.jpg');"
+      >
+        <div class="content">
+          <div class="name">Iceland</div>
+          <div class="des">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          </div>
+          <button>See More</button>
+        </div>
+      </div>
+      <!-- Slide 4 -->
+      <div
+        class="item"
+        style="background-image: url('assets/tech2.jpg');"
+      >
+        <div class="content">
+          <div class="name">Australia</div>
+          <div class="des">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          </div>
+          <button>See More</button>
+        </div>
+      </div>
+      <!-- Slide 5 -->
+      <div
+        class="item"
+        style="background-image: url('assets/tech1.jpg');"
+      >
+        <div class="content">
+          <div class="name">Netherland</div>
+          <div class="des">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          </div>
+          <button>See More</button>
+        </div>
+      </div>
+      <!-- Slide 6 -->
+      <div
+        class="item"
+        style="background-image: url('assets/tech3.jpg');"
+      >
+        <div class="content">
+          <div class="name">Ireland</div>
+          <div class="des">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          </div>
+          <button>See More</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Carousel Navigation Buttons -->
+    <div class="carousel-buttons">
+      <button class="prev">
+        <i class="fa-solid fa-arrow-left"></i>
+      </button>
+      <button class="next">
+        <i class="fa-solid fa-arrow-right"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- =====================
+       ABOUT US SECTION
+  ====================== -->
+  <section class="about-section">
+    <div class="container-about">
+      <div class="about-text">
+        <div class="section-label">ABOUT US</div>
+        <h2>
+          About <span>Our Company</span>
+        </h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, 
+          commodi doloremque, fugit illum magni minus nisi nulla numquam 
+          obcaecati placeat quia, repellat tempore voluptatum.
+        </p>
+        <p>
+          From agile consulting to custom software development, Kanvitech
+          partners with you to transform complex ideas into streamlined
+          solutions. Our focus on collaboration, transparency, and excellence
+          sets us apart in delivering high-quality results.
+        </p>
+      </div>
+      <div class="about-image">
+        <!-- Replace with your own illustration or team image -->
+        <img 
+          src="assets/Aboutus-new.png" 
+          alt="About Kanvitech"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================
+       SERVICES SECTION (BLUR HOVER)
+  ====================== -->
+  <section class="services-blur">
+    <h2>Our Services</h2>
+    <div class="cards-container">
+      <!-- CARD 1: Software Development -->
+      <div class="card">
+        <img 
+          src="assets/softwaredev.jpg"
+          alt="Software Development"
+          class="card__image"
+        />
+        <h3 class="card__title">Software Development</h3>
+        <div class="card__overlay">
+          <p class="card__snippet">
+            If you are planning to build your app, you’ll become hostage 
+            to impending decisions in terms of technology, databases..
+          </p>
+          <a href="softwaredev.html" class="card__button">Learn More</a>
+        </div>
+      </div>
+
+      <!-- CARD 2: Staffing Services -->
+      <div class="card">
+        <img 
+          src="assets/Staffingservice.jpg"
+          alt="Staffing Services"
+          class="card__image"
+        />
+        <h3 class="card__title">Staffing Services</h3>
+        <div class="card__overlay">
+          <p class="card__snippet">
+            Finding the right candidate for a permanent position, from 
+            reviewing resumes to identifying quality candidates..
+          </p>
+          <a href="#" class="card__button">Learn More</a>
+        </div>
+      </div>
+
+      <!-- CARD 3: Power, Oil & Gas -->
+      <div class="card">
+        <img 
+          src="assets/powerandoil.jpg"
+          alt="Power, Oil & Gas"
+          class="card__image"
+        />
+        <h3 class="card__title">Power, Oil &amp; Gas</h3>
+        <div class="card__overlay">
+          <p class="card__snippet">
+            Our engineering team has a 10+ years of skills that can support
+            concept development through to FEED offshore..
+          </p>
+          <a href="#" class="card__button">Learn More</a>
+        </div>
+      </div>
+
+      <!-- CARD 4: GIS -->
+      <div class="card">
+        <img 
+          src="assets/RCM2.jpeg"
+          alt="GIS"
+          class="card__image"
+        />
+        <h3 class="card__title">GIS</h3>
+        <div class="card__overlay">
+          <p class="card__snippet">
+            Geospatial technology is quite diverse due to the 
+            variety of applications and markets it serves.
+          </p>
+          <a href="#" class="card__button">Learn More</a>
+        </div>
+      </div>
+
+      <!-- CARD 5: RCM -->
+      <div class="card">
+        <img 
+          src="assets/rcm.jpg"
+          alt="RCM"
+          class="card__image"
+        />
+        <h3 class="card__title">RCM</h3>
+        <div class="card__overlay">
+          <p class="card__snippet">
+            KANVITECH supports HIPAA medical billing & total healthcare 
+            back office solutions for your RCM needs.
+          </p>
+          <a href="#" class="card__button">Learn More</a>
+        </div>
+      </div>
+
+      <!-- CARD 6: Optional Additional Service -->
+      <div class="card">
+        <img 
+          src="assets/dve.jpg"
+          alt="Other Service"
+          class="card__image"
+        />
+        <h3 class="card__title">Other Service</h3>
+        <div class="card__overlay">
+          <p class="card__snippet">
+            Add your extra service snippet or remove if only 5 needed.
+          </p>
+          <a href="#" class="card__button">Learn More</a>
+        </div>
+      </div>
+    </div><!-- /cards-container -->
+  </section>
+
+  <!-- Partners -->
+  <section class="partners">
+    <div class="container">
+        <h2 class="partners-title">Our Trusted Partners</h2>
+        <div class="partners-carousel">
+            <div class="partner-logo">
+                <img src="assets/logo.png" alt="Partner 1 Logo">
+            </div>
+            <div class="partner-logo">
+                <img src="assets/logo.png" alt="Partner 2 Logo">
+            </div>
+            <div class="partner-logo">
+                <img src="assets/softwaredev.jpg" alt="Partner 3 Logo">
+            </div>
+        </div>
+    </div>
+</section>
+<!-- =====================
+       CONTACT SECTION
+  ====================== -->
+  <section class="contact-section" id="contactus">
+    <div class="contact-left">
+      <div class="left-content">
+        <h1>Have a Project in Mind?</h1>
+        <p>Reach out to us. We can make something awesome together.</p>
+        <div class="info-line">
+          <span>ADDRESS</span>
+          <strong>India</strong>
+        </div>
+        <div class="info-line">
+          <span>EMAIL</span>
+          <strong>info@kanvitech.com</strong>
+        </div>
+        <div class="info-line">
+          <span>PHONE</span>
+          <strong>+91 9347-227-408</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-right">
+      <h2>Contact Us</h2>
+      <p>Interested in working with Kanvitech or just have a question? Send us a message below.</p>
+      <form>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" placeholder="Enter your Full Name" required/>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="Enter your Email" required/>
+        </div>
+        <div class="form-group">
+          <label for="details">Project Details</label>
+          <textarea id="details" rows="4" placeholder="Tell us about your project..." required></textarea>
+        </div>
+        <button type="submit">SEND MESSAGE</button>
+
+        <div class="contact-social">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- =====================
+       FOOTER SECTION
+       (CloudSync-like)
+  ====================== -->
+<!-- =====================
+       FOOTER SECTION
+       (CloudSync-like)
+===================== -->
+<footer>
+  <div class="footer-container">
+      <!-- Column 1: Company Info -->
+      <div class="footer-col">
+          <h4>Kanvitech</h4>
+          <p>
+              Empowering businesses with advanced solutions, 
+              delivering innovative technology to meet modern challenges.
+          </p>
+      </div>
+
+      <!-- Column 2: Quick Links -->
+      <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Services</a></li>
+              <li><a href="#">Contact</a></li>
+          </ul>
+      </div>
+
+      <!-- Column 3: Social & Contact -->
+      <div class="footer-col">
+          <h4>Follow Us</h4>
+          <div class="footer-social">
+              <a href="#">
+                  <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#">
+                  <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a href="#">
+                  <i class="fab fa-twitter"></i>
+              </a>
+          </div>
+          <h4 class="footer-contact-title">Contact</h4>
+          <p class="footer-contact-info">
+              Email: info@kanvitech.com<br />
+              Phone: +1 (555) 123-4567
+          </p>
+      </div>
+  </div><!-- /footer-container -->
+
+  <div class="footer-bottom">
+      &copy; 2025 Kanvitech. All rights reserved.
+  </div>
+</footer>
+  <!-- =========================
+       JS for Carousel & Navbar
+  ========================== -->
+  <!-- jQuery (Required for Bootstrap JS) -->
+  <script src="https://kit.fontawesome.com/8ac6be730b.js" crossorigin="anonymous"></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+    integrity="sha512-bLT0DCL6pBfMZ3faBAr/7R6C+7vWef1iRybf/rvuG7KZbGA2ZswZ8Fa7jXNOOJp8bN+Swr0WeClyZ2afXoxUPQ=="
+    crossorigin="anonymous"
+  ></script>
+  <!-- Bootstrap JS -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha512-K1qjQ+NcF+6cPpgchEn8Yd4xhZ2ezB7jsh6V/QJoz6SmzVfYIEp+HfZ5Cs6LOj/AZ7Y9NhcKSl9oB2faUk9lEA=="
+    crossorigin="anonymous"
+  ></script>
+
+  <!-- External JavaScript -->
+  <script src="js/carousal.js"></script>
+</body>
+</html>
