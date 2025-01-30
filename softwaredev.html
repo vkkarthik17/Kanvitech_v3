@@ -1,227 +1,706 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Software Development Services | Kanvitech</title>
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Software Development Services | Kanvitech</title>
 
-    <!-- Font Awesome -->
-    <link 
-        rel="stylesheet" 
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" 
-    />
-    <link rel="stylesheet" href="css/carousal.css">
-    <style>
-        :root {
-            --primary-color: #5F4B8B;
-            --secondary-color: #fbc02d;
-            --text-dark: #333;
-            --bg-light: #f4f4f4;
-        }
+  <!-- Google Fonts: Poppins & Playfair Display -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Playfair+Display:wght@700&display=swap"
+    rel="stylesheet"
+  >
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <!-- Font Awesome -->
+  <link 
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    crossorigin="anonymous"
+  />
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
-        }
+  <!-- If you prefer external CSS, link to it:
+       <link rel="stylesheet" href="css/styles.css" /> -->
+  <style>
+    :root {
+      --brand-primary: #1f3f81;  /* Deep Blue */
+      --brand-secondary: #f39c12;/* Orange accent */
+      --text-dark: #333;
+      --text-gray: #777;
+      --text-light: #fff;
+      --bg-color: #f8f9fa;
+      --transition: 0.3s ease; 
+      --navbar-text-default: #000;
+      --mobile-menu-bg: rgba(255, 255, 255, 0.95);
+      --font-body: 'Poppins', sans-serif;
+      --font-heading: 'Playfair Display', serif;
+    }
+    /* RESET & GLOBAL */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      width: 100%;
+      height: 100%;
+      font-family: var(--font-body);
+      color: var(--text-dark);
+      background: var(--bg-color);
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+      outline: none;
+    }
+    /* NAVBAR */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      padding: 15px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    }
+    .navbar .logo img {
+      max-width:120px;
+      height:auto;
+    }
+/* ====== Modern Navbar Hover Effects ====== */
+.nav-links {
+  display: flex;
+  gap: 30px;
+  font-weight: 500;
+}
 
-        .service-hero {
-            display: flex;
-            align-items: center;
-            min-height: 70vh;
-            background: linear-gradient(135deg, rgba(95,75,139,0.9), rgba(95,75,139,0.7));
-            color: white;
-            padding: 60px 20px;
-        }
+.nav-links a {
+  color: var(--navbar-text-default);
+  position: relative;
+  padding: 8px 0;
+  transition: color 0.3s ease;
+}
+.nav-links a:hover {
+  color: var(--brand-primary);
+}
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background-color: var(--brand-primary);
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform 0.3s ease;
+}
+.nav-links a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .bar {
+      width: 25px;
+      height: 3px;
+      background-color: var(--navbar-text-default);
+      margin: 4px 0;
+      transition: 0.3s;
+    }
+    .hamburger.open .bar:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 6px);
+    }
+    .hamburger.open .bar:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.open .bar:nth-child(3) {
+      transform: rotate(-45deg) translate(4px, -5px);
+    }
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 15px 20px;
+      }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background: var(--mobile-menu-bg);
+        backdrop-filter: blur(10px);
+      }
+      .nav-links.active {
+        display: flex;
+      }
+      .nav-links a {
+        padding: 15px 20px;
+        border-bottom: 1px solid #ddd;
+        color: #000;
+      }
+      .hamburger {
+        display: flex;
+      }
+    }
+    /* FOOTER */
+    footer {
+      background: #1f1f1f;
+      color: #ccc;
+      padding: 40px 20px;
+    }
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+    .footer-col {
+      flex: 1 1 200px; 
+      min-width: 200px;
+    }
+    .footer-col h4 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      color: #fff;
+      font-family: var(--font-heading);
+    }
+    .footer-col p {
+      line-height: 1.6;
+    }
+    .footer-col ul {
+      list-style: none;
+    }
+    .footer-col ul li {
+      margin-bottom: 0.5rem;
+    }
+    .footer-col ul li a {
+      color: #ccc;
+      transition: color var(--transition);
+    }
+    .footer-col ul li a:hover {
+      color: var(--brand-secondary);
+    }
+    .footer-social {
+      display: flex;
+      gap: 10px;
+      margin-top: 1rem;
+    }
+    .footer-social a {
+      color: #ccc;
+      font-size: 1.2rem;
+      transition: color var(--transition);
+    }
+    .footer-social a:hover {
+      color: var(--brand-secondary);
+    }
+    .footer-contact-title {
+      margin-top: 1rem;
+      color: #fff;
+      font-family: var(--font-heading);
+    }
+    .footer-contact-info {
+      margin-top: 0.5rem;
+      color: #ccc;
+    }
+    .footer-bottom {
+      text-align: center;
+      border-top: 1px solid #333;
+      padding-top: 15px;
+      margin-top: 20px;
+      font-size: 0.9rem;
+      color: #777;
+    }
 
-        .hero-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            gap: 40px;
-        }
+    /* HERO - UPGRADED */
+    .hero {
+      background:
+        linear-gradient(135deg, rgba(31,63,129,0.6), rgba(21,48,96,0.6)),
+        url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1920&q=80');
+      color: #fff;
+      padding: 10rem 2rem 8rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      background-size: cover;
+      background-position: center;
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.3);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+    }
+    .hero h1 {
+      font-family: var(--font-heading);
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      animation: slideUp 1s ease;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    .hero p {
+      font-size: 1.4rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    /* “Cloud & SaaS” SECTION */
+    .cloud-saas-section {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    .cloud-saas-col {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      /* justify-content: center; */
+    }
+    .cloud-saas-col h2 {
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: var(--brand-primary);
+    }
+    .cloud-saas-col p {
+      margin-bottom: 1rem;
+      line-height: 1.7;
+      color: var(--text-dark);
+    }
+    .cloud-saas-img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+    @media (max-width: 992px) {
+      .cloud-saas-section {
+        grid-template-columns: 1fr;
+      }
+    }
+    /* "What You Receive?" Section */
+    .what-you-receive {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .what-you-receive h2 {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      color: var(--brand-primary);
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    .what-you-receive .content-box {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+      line-height: 1.7;
+    }
+    /* Expertise Cards (AI, Cloud, etc.) from your existing template */
+    .expertise {
+      padding: 5rem 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .expertise-card {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      border-bottom: 4px solid transparent;
+    }
+    .expertise-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--brand-secondary);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+    }
+    .expertise-card i {
+      font-size: 2.5rem;
+      color: var(--brand-primary);
+      margin-bottom: 1.5rem;
+      transition: color 0.3s ease;
+    }
 
-        .hero-text {
-            flex: 1;
-        }
+    /* Process Timeline */
+    .process {
+      background: var(--text-dark);
+      color: white;
+      padding: 6rem 2rem;
+      position: relative;
+    }
+    .timeline {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .timeline-step {
+      padding: 2rem;
+      margin: 2rem 0;
+      border-left: 3px solid var(--brand-secondary);
+      position: relative;
+      opacity: 0;
+      transform: translateX(-50px);
+      transition: all 0.5s ease;
+      background: rgba(255,255,255,0.05);
+      border-radius: 0 8px 8px 0;
+    }
+    .timeline-step.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .timeline-step::before {
+      content: '';
+      position: absolute;
+      left: -10px;
+      top: 20px;
+      width: 20px;
+      height: 20px;
+      background: var(--brand-secondary);
+      border-radius: 50%;
+      box-shadow: 0 0 15px rgba(243,156,18,0.3);
+    }
+    /* Tech Stack */
+    .tech-stack {
+      padding: 5rem 2rem;
+      background: white;
+      text-align: center;
+    }
+    .tech-stack h2 {
+      font-family: var(--font-heading);
+      color: var(--brand-primary);
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+    .tech-icons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 3rem;
+      margin-top: 2rem;
+      padding: 0 2rem;
+    }
+    .tech-icons img {
+      height: 60px;
+      filter: grayscale(1) opacity(0.8);
+      transition: all 0.3s ease;
+    }
+    .tech-icons img:hover {
+      filter: grayscale(0) opacity(1);
+      transform: scale(1.1);
+    }
 
-        .hero-image {
-            flex: 1;
-            max-width: 50%;
-        }
-
-        .hero-image img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-        }
-
-        .hero-text h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-
-        .hero-text p {
-            font-size: 1.1rem;
-            margin-bottom: 30px;
-            opacity: 0.9;
-        }
-
-        .services-grid {
-            max-width: 1200px;
-            margin: 60px auto;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            padding: 0 20px;
-        }
-
-        .service-card {
-            background: white;
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .service-card h3 {
-            color: var(--primary-color);
-            margin-bottom: 15px;
-        }
-
-        @media (max-width: 768px) {
-            .hero-content {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .hero-image {
-                max-width: 100%;
-                margin-top: 30px;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    @media (max-width: 768px) {
+      .hero {
+        padding: 8rem 2rem 6rem;
+        min-height: 60vh;
+      }
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      .expertise {
+        grid-template-columns: 1fr;
+      }
+      .timeline-step {
+        margin: 1.5rem 0;
+        padding: 1.5rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- NAVBAR (Same as original) -->
-    <nav class="navbar">
-        <div class="logo">
-            <img src="assets/logo.png" alt="Company Logo">
-        </div>
-        
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="#about">About</a>
-            <a href="#services">Services</a>
-            <a href="#contactus">Contact</a>
-        </div>
-        <div class="hamburger" aria-label="Toggle navigation" role="button" tabindex="0">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-        </div>
-    </nav>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="logo">
+      <img src="assets/logo.png" alt="Kanvitech Logo" style="max-width:120px; height:auto;">
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="aboutuss.html">About</a>
+      <a href="index.html#services">Services</a>
+      <a href="contactuss.html">Contact</a>
+    </div>
+    <div class="hamburger" aria-label="Toggle navigation" role="button" tabindex="0">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+  </nav>
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Transformative Digital Solutions</h1>
+      <p>Engineering excellence through innovative software development</p>
+    </div>
+  </section>
+  <!-- Cloud & SaaS Section -->
+  <section class="cloud-saas-section">
+    <!-- Left Column: Cloud App Dev -->
+    <div class="cloud-saas-col">
+      <img 
+        class="cloud-saas-img" 
+        src="/assets/softdev_2.jpg" 
+        alt="Cloud Development Unsplash"
+      />
+      <h2>Cloud Application Development</h2>
+      <p>
+        If you are planning to build your app, you’ll become hostage to impending decisions
+        in terms of technology, databases and programming languages. The real issue is what
+        if you want to port your apps to another Cloud, bring them on-premise, or change
+        the underlying technology? Then you’re stuck with a huge risk and prohibitive cost.
+      </p>
+      <p>
+        IT projects don’t fail because of your DEV, QA or Production infrastructure set-up.
+        They fail because the development process is broken! The Cloud can speed up
+        infrastructure set-up; improve availability, and lower operational costs. But it
+        doesn't help you deliver on-time and in-budget!
+      </p>
+      <p>
+        We deliver applications that are built-for-change, and where the space for change
+        is accommodated across the application life-cycle. Our approach is designed to
+        create the perfect balance between centralized hosting, governance and management
+        together with developer freedom, productivity and time-to-market.
+      </p>
+    </div>
+    <!-- Right Column: SaaS App Dev -->
+    <div class="cloud-saas-col">
+      <img
+        class="cloud-saas-img"
+        src="assets/dve.jpg"
+        alt="SaaS Application Unsplash"
+      />
+      <h2>SAAS Application Development</h2>
+      <p>
+        With all the hype around building Cloud apps, companies are rushing to join the
+        race to the Clouds. Even companies that offer hosted applications realize the ever
+        increasing requirements to add more features and platform capabilities. We enable
+        ISV’s to move and take the business advantage of SaaS onto Cloud, creating a robust
+        architecture with multi-tenant, scalable functionality or re-architecting existing
+        applications to leverage the full capabilities of the Cloud model.
+      </p>
+      <p>
+        We facilitate the development of a new generation of highly specialized SaaS
+        applications by creating a Cloud-based framework, specifically designed to expose
+        defined business processes for integration within and between applications and
+        organizations. 
+      </p>
+    </div>
+  </section>
+  <!-- "What You Receive?" Section -->
+  <section class="what-you-receive">
+    <h2>What You Receive?</h2>
+    <div class="content-box">
+      <p>
+        Technology transforms the way we communicate. It is critically essential to adapt
+        to changes to our advantage. Web-based application development isn't just about
+        resource optimization; it is about organizing various collaboration processes with
+        your employees, vendors, clients, or partners—effectively and apparently—which
+        makes web development so effective.
+      </p>
+      <p>
+        Web development is equally important for big and small companies, including a
+        plethora of activities like database integration, intranet & extranet applications
+        deployment, and the ability to use a content management system for a dynamic and
+        interactive website—supporting all objective interests of each business. 
+      </p>
+      <p>
+        Our team has the expertise in web development to help you achieve your business
+        objectives by installing ad-hoc applications through your website, improving
+        communication processes, and integrating solutions seamlessly.
+      </p>
+    </div>
+  </section>
+  <!-- Expertise Cards (Optional) -->
+  <section class="expertise">
+    <div class="expertise-card">
+      <i class="fas fa-mobile-alt"></i>
+      <h3>Mobile Development</h3>
+      <p>Native and cross-platform solutions with flawless UX</p>
+    </div>
+    <div class="expertise-card">
+      <i class="fas fa-cloud-upload-alt"></i>
+      <h3>Cloud Solutions</h3>
+      <p>Scalable cloud architecture and migration services</p>
+    </div>
+    <div class="expertise-card">
+      <i class="fas fa-robot"></i>
+      <h3>AI Integration</h3>
+      <p>Smart automation powered by machine learning</p>
+    </div>
+  </section>
 
-    <!-- Hero Section -->
-    <section class="service-hero">
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1>Software Development Solutions</h1>
-                <p>We transform innovative ideas into powerful digital experiences. Our expert team creates custom software that drives your business forward, combining cutting-edge technology with strategic insights.</p>
-            </div>
-            <div class="hero-image">
-                <img src="assets/softwaredev.jpg" alt="Software Development Team">
-            </div>
-        </div>
-    </section>
+  <!-- Process Timeline -->
+  <section class="process">
+    <div class="timeline">
+      <div class="timeline-step">
+        <h3>Discovery &amp; Planning</h3>
+        <p>Requirement analysis and project roadmap creation</p>
+      </div>
+      <div class="timeline-step">
+        <h3>Design &amp; Prototyping</h3>
+        <p>UI/UX design and functional prototyping</p>
+      </div>
+      <div class="timeline-step">
+        <h3>Development &amp; Testing</h3>
+        <p>Agile development with continuous integration</p>
+      </div>
+      <div class="timeline-step">
+        <h3>Deployment &amp; Support</h3>
+        <p>Seamless deployment and ongoing maintenance</p>
+      </div>
+    </div>
+  </section>
 
-    <!-- Services Grid -->
-    <section class="services-grid">
-        <div class="service-card">
-            <h3>Web Development</h3>
-            <p>Custom web solutions that enhance user experience and drive digital transformation.</p>
-        </div>
-        <div class="service-card">
-            <h3>Mobile App Development</h3>
-            <p>Innovative mobile applications that connect businesses with their customers seamlessly.</p>
-        </div>
-        <div class="service-card">
-            <h3>Enterprise Solutions</h3>
-            <p>Scalable software that optimizes business processes and supports strategic growth.</p>
-        </div>
-    </section>
+  <!-- Tech Stack -->
+  <section class="tech-stack">
+    <h2>Our Technology Ecosystem</h2>
+    <div class="tech-icons">
+      <!-- Example placeholders; update to your actual assets -->
+      <img src="java-logo.svg" alt="Java">
+      <img src="python-logo.svg" alt="Python">
+      <img src="react-logo.svg" alt="React">
+      <img src="aws-logo.svg" alt="AWS">
+    </div>
+  </section>
 
-    <!-- Footer (Same as original) -->
-    <footer>
-        <div class="footer-container">
-            <!-- Column 1: Company Info -->
-            <div class="footer-col">
-                <h4>Kanvitech</h4>
-                <p>
-                    Empowering businesses with advanced solutions, 
-                    delivering innovative technology to meet modern challenges.
-                </p>
-            </div>
-      
-            <!-- Column 2: Quick Links -->
-            <div class="footer-col">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
-      
-            <!-- Column 3: Social & Contact -->
-            <div class="footer-col">
-                <h4>Follow Us</h4>
-                <div class="footer-social">
-                    <a href="#">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="#">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="#">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                </div>
-                <h4 class="footer-contact-title">Contact</h4>
-                <p class="footer-contact-info">
-                    Email: info@kanvitech.com<br />
-                    Phone: +1 (555) 123-4567
-                </p>
-            </div>
-        </div><!-- /footer-container -->
-      
-        <div class="footer-bottom">
-            &copy; 2025 Kanvitech. All rights reserved.
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-container">
+      <!-- Column 1: Company Info -->
+      <div class="footer-col">
+        <h4>Kanvitech</h4>
+        <p>
+          Empowering businesses with advanced solutions, 
+          delivering innovative technology to meet modern challenges.
+        </p>
+      </div>
+
+      <!-- Column 2: Quick Links -->
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contactus">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Social & Contact -->
+      <div class="footer-col">
+        <h4>Follow Us</h4>
+        <div class="footer-social">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
         </div>
-      </footer>
-      
+        <h4 class="footer-contact-title">Contact</h4>
+        <p class="footer-contact-info">
+          Email: info@kanvitech.com<br />
+          Phone: +1 (555) 123-4567
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2025 Kanvitech. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+    crossorigin="anonymous">
+  </script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"
+    crossorigin="anonymous">
+  </script>
+  <script>
+    // Hamburger Menu
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    hamburger.addEventListener('click', function() {
+      hamburger.classList.toggle('open');
+      navLinks.classList.toggle('active');
+    });
+
+    // Close mobile menu on link click
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', function() {
+        if (window.innerWidth <= 768) {
+          hamburger.classList.remove('open');
+          navLinks.classList.remove('active');
+        }
+      });
+    });
+
+    // IntersectionObserver for timeline & expertise animations
+    const timelineSteps = document.querySelectorAll('.timeline-step');
+    const expertiseCards = document.querySelectorAll('.expertise-card');
+    const observerOptions = { threshold: 0.1, rootMargin: "0px" };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, observerOptions);
+    timelineSteps.forEach(step => observer.observe(step));
+    expertiseCards.forEach(card => observer.observe(card));
+
+    // Simple parallax for hero background
+    window.addEventListener('scroll', () => {
+      const scrolled = window.pageYOffset;
+      const parallaxElements = document.querySelectorAll('.hero');
+      parallaxElements.forEach(element => {
+        element.style.backgroundPositionY = `${scrolled * 0.5}px`;
+      });
+    });
+  </script>
 </body>
 </html>

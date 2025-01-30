@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us | Kanvitech</title>
+
+  <!-- Google Fonts: Poppins & Playfair Display -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Playfair+Display:wght@700&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Font Awesome -->
+  <link 
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    crossorigin="anonymous"
+  />
+
+  <style>
+    :root {
+      --brand-primary: #1f3f81; 
+      --brand-secondary: #f39c12;
+      --text-dark: #333;
+      --text-light: #fff;
+      --bg-color: #f8f9fa;
+      --transition: 0.3s ease; 
+      --navbar-text-default: #000;
+      --mobile-menu-bg: rgba(255, 255, 255, 0.95);
+      --font-body: 'Poppins', sans-serif;
+      --font-heading: 'Playfair Display', serif;
+    }
+
+    /* RESET & GLOBAL */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      width: 100%;
+      height: 100%;
+      font-family: var(--font-body);
+      color: var(--text-dark);
+      background: var(--bg-color);
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+      outline: none;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      padding: 15px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    }
+    .navbar .logo img {
+      max-width: 120px;
+      height: auto;
+    }
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      font-weight: 500;
+    }
+    .nav-links a {
+      color: var(--navbar-text-default);
+      position: relative;
+      padding: 8px 0;
+      transition: color var(--transition);
+    }
+    .nav-links a:hover {
+      color: var(--brand-primary);
+    }
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 100%;
+      height: 2px;
+      background-color: var(--brand-primary);
+      transform: scaleX(0);
+      transform-origin: right center;
+      transition: transform 0.3s ease;
+    }
+    .nav-links a:hover::after {
+      transform: scaleX(1);
+      transform-origin: left center;
+    }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .bar {
+      width: 25px;
+      height: 3px;
+      background-color: var(--navbar-text-default);
+      margin: 4px 0;
+      transition: 0.3s;
+    }
+    .hamburger.open .bar:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 6px);
+    }
+    .hamburger.open .bar:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.open .bar:nth-child(3) {
+      transform: rotate(-45deg) translate(4px, -5px);
+    }
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 15px 20px;
+      }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background: var(--mobile-menu-bg);
+        backdrop-filter: blur(10px);
+      }
+      .nav-links.active {
+        display: flex;
+      }
+      .nav-links a {
+        padding: 15px 20px;
+        border-bottom: 1px solid #ddd;
+        color: #000;
+      }
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    /* HERO SECTION (Optional short hero) */
+    .hero {
+      background:
+        linear-gradient(135deg, rgba(31,63,129,0.5), rgba(21,48,96,0.5)),
+        url('/assets/contactusmodern.jpeg');
+      color: #fff;
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      background-size: cover;
+      background-position: center;
+      min-height: 50vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.3);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+    }
+    .hero h1 {
+      font-family: var(--font-heading);
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* CONTACT US SECTION */
+    .contact-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    .contact-left {
+  position: relative;
+  border-radius: 10px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: url("/assets/tech2.jpg") center center / cover no-repeat;
+  color: white; /* Ensure text is readable */
+}
+.contact-left::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8); /* Adjust opacity for better readability */
+  border-radius: 10px;
+}
+.contact-left * {
+  position: relative;
+  z-index: 2;
+}
+    .contact-left h2 {
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      color: var(--brand-secondary);
+      margin-bottom: 1rem;
+    }
+    .contact-left p {
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+    .info-line {
+      margin-bottom: 1rem;
+    }
+    .info-line strong {
+      display: inline-block;
+      margin-left: 0.5rem;
+    }
+
+    .contact-right {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .contact-right h2 {
+      font-family: var(--font-heading);
+      color: var(--brand-primary);
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+    .contact-right p {
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+    .form-group {
+      margin-bottom: 1rem;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 0.4rem;
+      font-weight: 500;
+      color: var(--brand-primary);
+    }
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid var(--brand-secondary);
+      padding: 8px 2px;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color var(--transition);
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: #999;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--brand-primary);
+    }
+    .contact-right button {
+      padding: 12px 24px;
+      background: var(--brand-primary);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+      font-weight: 600;
+      margin-top: 1rem;
+      transition: background var(--transition), color var(--transition);
+    }
+    .contact-right button:hover {
+      background: var(--brand-secondary);
+    }
+    .contact-social {
+      margin-top: 2rem;
+      display: flex;
+      gap: 10px;
+    }
+    .contact-social a {
+      color: var(--brand-primary);
+      font-size: 1.2rem;
+      transition: color var(--transition);
+    }
+    .contact-social a:hover {
+      color: var(--brand-secondary);
+    }
+
+    @media (max-width: 992px) {
+      .contact-section {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* FOOTER */
+    footer {
+      background: #1f1f1f;
+      color: #ccc;
+      padding: 40px 20px;
+    }
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+    .footer-col {
+      flex: 1 1 200px; 
+      min-width: 200px;
+    }
+    .footer-col h4 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      color: #fff;
+      font-family: var(--font-heading);
+    }
+    .footer-col p {
+      line-height: 1.6;
+    }
+    .footer-col ul {
+      list-style: none;
+    }
+    .footer-col ul li {
+      margin-bottom: 0.5rem;
+    }
+    .footer-col ul li a {
+      color: #ccc;
+      transition: color var(--transition);
+    }
+    .footer-col ul li a:hover {
+      color: var(--brand-secondary);
+    }
+    .footer-social {
+      display: flex;
+      gap: 10px;
+      margin-top: 1rem;
+    }
+    .footer-social a {
+      color: #ccc;
+      font-size: 1.2rem;
+      transition: color var(--transition);
+    }
+    .footer-social a:hover {
+      color: var(--brand-secondary);
+    }
+    .footer-contact-title {
+      margin-top: 1rem;
+      color: #fff;
+      font-family: var(--font-heading);
+    }
+    .footer-contact-info {
+      margin-top: 0.5rem;
+      color: #ccc;
+    }
+    .footer-bottom {
+      text-align: center;
+      border-top: 1px solid #333;
+      padding-top: 15px;
+      margin-top: 20px;
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        padding: 6rem 1.5rem 4rem;
+        min-height: 40vh;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="logo">
+      <img src="assets/logo.png" alt="Kanvitech Logo">
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#services">Services</a>
+      <a href="aboutus.html">About</a>
+      <a href="contactus.html">Contact</a>
+    </div>
+    <div class="hamburger" aria-label="Toggle navigation" role="button" tabindex="0">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Contact Us</h1>
+      <p>We’d love to hear from you. Let’s make something awesome together.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section class="contact-section">
+    <!-- Left: Info & Address -->
+    <div class="contact-left">
+      <h2>Get in Touch</h2>
+      <p>
+        Have a project in mind or simply want to get in touch?
+        Reach us via phone or email, or fill out the form. 
+        We typically respond within 1-2 business days.
+      </p>
+      <div class="info-line">
+        <strong>ADDRESS:</strong> India
+      </div>
+      <div class="info-line">
+        <strong>EMAIL:</strong> info@kanvitech.com
+      </div>
+      <div class="info-line">
+        <strong>PHONE:</strong> +1 (555) 123-4567
+      </div>
+    </div>
+
+    <!-- Right: Form -->
+    <div class="contact-right">
+      <h2>Drop Us a Message</h2>
+      <p>
+        Let us know what you’re working on or how we can help.
+      </p>
+      <form>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" placeholder="Enter your Full Name" required/>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="Enter your Email" required/>
+        </div>
+        <div class="form-group">
+          <label for="details">Message</label>
+          <textarea id="details" rows="4" placeholder="Tell us about your project..." required></textarea>
+        </div>
+        <button type="submit">SEND MESSAGE</button>
+
+        <div class="contact-social">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-container">
+      <!-- Column 1: Company Info -->
+      <div class="footer-col">
+        <h4>Kanvitech</h4>
+        <p>
+          Empowering businesses with advanced solutions,
+          delivering innovative technology to meet modern challenges.
+        </p>
+      </div>
+
+      <!-- Column 2: Quick Links -->
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="aboutus.html">About Us</a></li>
+          <li><a href="contactus.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Social & Contact -->
+      <div class="footer-col">
+        <h4>Follow Us</h4>
+        <div class="footer-social">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+        <h4 class="footer-contact-title">Contact</h4>
+        <p class="footer-contact-info">
+          Email: info@kanvitech.com<br />
+          Phone: +1 (555) 123-4567
+        </p>
+      </div>
+    </div><!-- /footer-container -->
+
+    <div class="footer-bottom">
+      &copy; 2025 Kanvitech. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- JS for mobile nav -->
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    hamburger.addEventListener('click', function() {
+      hamburger.classList.toggle('open');
+      navLinks.classList.toggle('active');
+    });
+
+    // Close mobile menu on link click
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', function() {
+        if (window.innerWidth <= 768) {
+          hamburger.classList.remove('open');
+          navLinks.classList.remove('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
